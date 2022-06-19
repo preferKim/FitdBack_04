@@ -88,6 +88,10 @@ class TutorialActivity : YouTubeBaseActivity() {
                     videoId = "YdhHnZxcpgY"
                     player.cueVideo(videoId)
                 }
+                else{
+                    videoId = "cgsqsVxd5xc"
+                    player.cueVideo(videoId)
+                }
             }
 
 

@@ -33,10 +33,10 @@
                     android:layout_marginTop="30sp"
                     android:layout_marginLeft="30sp"
                     android:background="@android:color/transparent"
-                    android:src="@drawable/profile_default"
+                    android:src="@drawable/fe_m2"
                     app:civ_border_color="#808080"
                     app:civ_border_overlay="true"
-                    app:civ_border_width="5dp"
+                    app:civ_border_width="0dp"
                     tools:ignore="MissingClass" />
 
                 <TextView
