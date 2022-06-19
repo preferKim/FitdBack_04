@@ -17,47 +17,47 @@
         android:background="@color/white"
         android:elevation="10dp">
 
-    <TextView
-        android:id="@+id/home_greeting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="안녕하세요"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:fontFamily="@font/font"
-
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="하고 싶은 운동을 선택해주세요."
-        android:textSize="20sp"
-        android:textStyle="bold"
-        />
-    </LinearLayout>
-        <ScrollView
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/home_greeting"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/primary_bg"
-            >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+            android:layout_margin="10dp"
+            android:text="안녕하세요"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/font"
 
-                <!--<TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginBottom="5dp"
-                    android:text=" 스쿼트"
-                    android:drawableLeft="@drawable/ic_squat_2"
-                    android:textSize="30sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/font"
-                    />-->
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="하고 싶은 운동을 선택해주세요."
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary_bg"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--<TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="5dp"
+                android:text=" 스쿼트"
+                android:drawableLeft="@drawable/ic_squat_2"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/font"
+                />-->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -79,7 +79,7 @@
                     android:fontFamily="@font/font"
                     android:drawableLeft="@drawable/sq"
                     android:elevation="0dp"
-                     />
+                    />
 
                 <TextView
                     android:id="@+id/sq_txt"
@@ -92,26 +92,26 @@
                     />
 
             </RelativeLayout>
-                <View
-                    android:background="@color/btn_gray"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginHorizontal="30dp"
-                    android:layout_marginBottom="10dp"
-                    />
-                <!-- 플랭크 -->
+            <View
+                android:background="@color/btn_gray"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginBottom="10dp"
+                />
+            <!-- 플랭크 -->
 
-                <!--<TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="10dp"
-                    android:text=""
-                    android:fontFamily="@font/font"
-                    android:drawableLeft="@drawable/ic_plank_2"
-                    android:textSize="30sp"
-                    android:textStyle="bold"
-                    />-->
+            <!--<TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:text=""
+                android:fontFamily="@font/font"
+                android:drawableLeft="@drawable/ic_plank_2"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                />-->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -142,28 +142,17 @@
                     android:text="#코어근육 #등 #복근 #엉덩이"
                     />
             </RelativeLayout>
-                <View
-                    android:background="@color/btn_gray"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginHorizontal="30dp"
-                    android:layout_marginBottom="10dp"
-                    />
+            <View
+                android:background="@color/btn_gray"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginBottom="10dp"
+                />
 
-            <!-- 사래레 -->
 
-                <!--<TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="30dp"
-                    android:drawableLeft="@drawable/ic_slr_2"
-                    android:fontFamily="@font/font"
-                    android:text=" 사이드 래터럴 레이즈"
-                    android:textSize="28dp"
-                    android:textStyle="bold" />-->
 
-                <RelativeLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <Button
@@ -193,88 +182,102 @@
                     android:text="#근력운동 #상체 #어깨 #삼각근"
                     />
             </RelativeLayout>
-                <View
-                    android:background="@color/btn_gray"
+
+            <View
+                android:background="@color/btn_gray"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="30dp"
+                />
+
+            <!-- 자율 운동 -->
+            <!--<TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:text=" 자율운동"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/font"
+                android:drawableLeft="@drawable/ic_free_2"/>-->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+                <!--
+                <ImageView
+                    android:id="@+id/im_autoEx"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginHorizontal="30dp"
-                    />
+                    android:layout_height="match_parent"
+                    android:background="@drawable/round_bg_border_black"
+                    app:layout_constraintGuide_begin="0dp" />
+                    -->
+            </LinearLayout>
 
-                <!-- 자율 운동 -->
-                <!--<TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="30dp"
-                    android:text=" 자율운동"
-                    android:textSize="30dp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/font"
-                    android:drawableLeft="@drawable/ic_free_2"/>-->
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center">
-                    <!--
-                    <ImageView
-                        android:id="@+id/im_autoEx"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/round_bg_border_black"
-                        app:layout_constraintGuide_begin="0dp" />
-                        -->
-                </LinearLayout>
-
-                <!--  비 운동 관련   -->
+            <!--  비 운동 관련   -->
 
 
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
                 <Button
                     android:id="@+id/freeExBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
-                    android:layout_marginHorizontal="28dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginVertical="20dp"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="30dp"
                     android:background="@drawable/btn_stroke_transparent"
                     android:drawableLeft="@drawable/fe"
                     android:fontFamily="@font/font"
                     android:gravity="center"
-                    android:text="자율운동"
+                    android:text="자율운동\n"
                     android:textColor="@color/btn_primary"
                     android:textSize="30dp"
                     android:textStyle="bold" />
 
-<!--                <Button-->
-<!--                    android:id="@+id/btnDevMode"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="50dp"-->
-<!--                    android:layout_marginTop="100dp"-->
-<!--                    android:layout_marginHorizontal="20dp"-->
-<!--                    android:background="@drawable/button_radius_color"-->
-<!--                    android:text="DEV MODE"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:textSize="30sp"-->
-<!--                    android:textStyle="bold"-->
-<!--                    tools:layout_editor_absoluteX="-30dp"-->
-<!--                    tools:layout_editor_absoluteY="265dp" />-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="40dp"
+                    android:layout_centerInParent="true"
+                    android:text="#스쿼트 #플랭크 # 래터럴레이즈"
+                    />
+            </RelativeLayout>
 
-                <Button
-                    android:id="@+id/btnSignOut"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="50dp"
-                    android:layout_marginBottom="100dp"
-                    android:layout_marginHorizontal="20dp"
-                    android:background="@drawable/button_radius_color_2"
-                    android:text="Sign Out"
-                    android:textColor="@color/white"
-                    android:textSize="30sp"
-                    android:textStyle="bold"
-                    tools:layout_editor_absoluteX="-30dp"
-                    tools:layout_editor_absoluteY="265dp" />
-            </LinearLayout>
-        </ScrollView>
+            <!--                <Button-->
+            <!--                    android:id="@+id/btnDevMode"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="50dp"-->
+            <!--                    android:layout_marginTop="100dp"-->
+            <!--                    android:layout_marginHorizontal="20dp"-->
+            <!--                    android:background="@drawable/button_radius_color"-->
+            <!--                    android:text="DEV MODE"-->
+            <!--                    android:textColor="@color/white"-->
+            <!--                    android:textSize="30sp"-->
+            <!--                    android:textStyle="bold"-->
+            <!--                    tools:layout_editor_absoluteX="-30dp"-->
+            <!--                    tools:layout_editor_absoluteY="265dp" />-->
+
+            <Button
+                android:id="@+id/btnSignOut"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="100dp"
+                android:layout_marginHorizontal="20dp"
+                android:background="@drawable/button_radius_color_2"
+                android:text="Sign Out"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="-30dp"
+                tools:layout_editor_absoluteY="265dp" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
 

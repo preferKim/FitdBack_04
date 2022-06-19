@@ -23,6 +23,7 @@ import com.github.mikephil.charting.data.BarDataSet
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import java.lang.StringBuilder
 
 class FeedbackActivity : AppCompatActivity() {
 
@@ -90,6 +91,10 @@ class FeedbackActivity : AppCompatActivity() {
             feedbackTitlePl.visibility = View.GONE
             gridPl.visibility = View.GONE
             gridSq.visibility = View.GONE
+        } else {
+            feedbackMsgPl.visibility = View.GONE
+            feedbackTitlePl.visibility = View.GONE
+            gridPl.visibility = View.GONE
         }
 
         // BarChart Layout 비활성화
@@ -128,11 +133,12 @@ class FeedbackActivity : AppCompatActivity() {
 
         // 다이얼로그 운동 결과 텍스트
         val exerciseResultArea = mAlertDialog.findViewById<TextView>(R.id.exerciseResultArea)
-        exerciseResultArea?.text = when(FeedbackAlgorithm.exr_mode) {
+        exerciseResultArea?.text = when (FeedbackAlgorithm.exr_mode) {
             "squat" -> FeedbackAlgorithm.squat_string1
             "plank" -> FeedbackAlgorithm.plank_string1
             "sideLateralRaise" -> FeedbackAlgorithm.sidelr_string1
-            else -> "ex_count"
+            "free_exr" -> getFreeExrString()
+            else -> "Error"
         }
 
         val btnDataWrite =
@@ -170,8 +176,8 @@ class FeedbackActivity : AppCompatActivity() {
 
             // Bar Chart 실행
             MyBarChartGenerator().runBarChart(barChart, barDataSet.yMax + 1.0f)
-
             mAlertDialog.dismiss()
+
         }
 
         // 다이얼로그의 버튼 클릭
@@ -182,15 +188,15 @@ class FeedbackActivity : AppCompatActivity() {
             // TODO: 레이아웃 채우기
             val feedbackHandler = FeedbackHandler()
 
-
             var feedbacktext_list3: List<String> = listOf(
                 FeedbackAlgorithm.squat_string3,
-                FeedbackAlgorithm.plank_string3,
+//                FeedbackAlgorithm.plank_string3,
                 FeedbackAlgorithm.sidelr_string3
             )
+
             var feedbacktext_list2: List<String> = listOf(
                 FeedbackAlgorithm.squat_string2,
-                FeedbackAlgorithm.plank_string2,
+//                FeedbackAlgorithm.plank_string2,
                 FeedbackAlgorithm.sidelr_string2
             )
 
@@ -236,7 +242,7 @@ class FeedbackActivity : AppCompatActivity() {
             }*/
             for (i in feedbacktext_list2) {
                 if (i != "Empty") {
-                    FeedbackAlgorithm.feedback_text2 += i
+                    FeedbackAlgorithm.feedback_text2 += i + "\n\n"
                 }
             }
 
@@ -315,6 +321,20 @@ class FeedbackActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    private fun getFreeExrString(): String {
+        val string1_list = mutableListOf<String>()
+        string1_list.add(FeedbackAlgorithm.squat_string1)
+//        string1_list.add(FeedbackAlgorithm.plank_string1)
+        string1_list.add(FeedbackAlgorithm.sidelr_string1)
+
+        val br = StringBuilder()
+        for (str in string1_list) {
+            if (str != "Empty") br.append(str + "\n\n")
+        }
+
+        return br.toString()
     }
 
 }
