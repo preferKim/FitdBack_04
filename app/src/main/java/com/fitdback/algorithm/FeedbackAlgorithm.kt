@@ -317,7 +317,6 @@ class FeedbackAlgorithm {
                             }
                             squat_f_mode[wrong_mode]++
 
-
                         }
                         isWrong = false
                         wrong_mode = 0

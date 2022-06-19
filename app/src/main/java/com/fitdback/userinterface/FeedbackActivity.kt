@@ -44,6 +44,9 @@ class FeedbackActivity : AppCompatActivity() {
         val btnShowExCountChart = findViewById<Button>(R.id.fb_btnShowExCountChart)
         val btnShowExTimeChart = findViewById<Button>(R.id.fb_btnShowExTimeChart)
 
+        val barChartLayout = findViewById<RelativeLayout>(R.id.barChartLayout)
+        val btnLinearLayout = findViewById<LinearLayout>(R.id.btnLinearLayout)
+
 
         val achievementRate = findViewById<TextView>(R.id.fb_achivementRate)
         val feedbackTitleSq = findViewById<TextView>(R.id.fb_sq_title)
@@ -60,31 +63,27 @@ class FeedbackActivity : AppCompatActivity() {
         val rtn_home = findViewById<Button>(R.id.return_home)
         val toMainActivity = Intent(this, MainActivity::class.java)
 
-        rtn_home.setOnClickListener{
+        rtn_home.setOnClickListener {
             startActivity(toMainActivity)
             finish()
         }
 
-
-
         // 피드백 액티비티 다른 운동시 UI 공간 차지 방지
-        if(FeedbackAlgorithm.exr_mode=="squat"){
+        if (FeedbackAlgorithm.exr_mode == "squat") {
             feedbackMsgPl.visibility = View.GONE
             feedbackMsgSlr.visibility = View.GONE
             feedbackTitlePl.visibility = View.GONE
             feedbackTitleSlr.visibility = View.GONE
             gridPl.visibility = View.GONE
             gridSlr.visibility = View.GONE
-        }
-        else if(FeedbackAlgorithm.exr_mode == "plank"){
+        } else if (FeedbackAlgorithm.exr_mode == "plank") {
             feedbackMsgSq.visibility = View.GONE
             feedbackMsgSlr.visibility = View.GONE
             feedbackTitleSq.visibility = View.GONE
             feedbackTitleSlr.visibility = View.GONE
             gridSq.visibility = View.GONE
             gridSlr.visibility = View.GONE
-        }
-        else if(FeedbackAlgorithm.exr_mode == "sidelr"){
+        } else if (FeedbackAlgorithm.exr_mode == "sidelr") {
             feedbackMsgSq.visibility = View.GONE
             feedbackMsgPl.visibility = View.GONE
             feedbackTitleSq.visibility = View.GONE
@@ -93,6 +92,11 @@ class FeedbackActivity : AppCompatActivity() {
             gridSq.visibility = View.GONE
         }
 
+        // BarChart Layout 비활성화
+        if (FeedbackAlgorithm.exr_mode == "free_exr") {
+            barChartLayout.visibility = View.GONE
+            btnLinearLayout.visibility = View.GONE
+        }
 
 
         // Data Write
@@ -113,15 +117,23 @@ class FeedbackActivity : AppCompatActivity() {
         // 최신화된 데이터 불러오기
         val dbPathForReading = DataBasket.getDBPath("users", "ex_data", true)
         DataBasket.getDataFromFB(dbPathForReading!!, "individualExData")
-        
+
         // 다이얼로그
         val mDialogView =
             LayoutInflater.from(this).inflate(R.layout.dialog_exercise_data_write, null)
         val mBuilder =
             AlertDialog.Builder(this).setView(mDialogView).setTitle("")
         mBuilder.setCancelable(false) // 배경 터치시 종료 방지
-        
-        val mAlertDialog = mBuilder.show()
+        val mAlertDialog = mBuilder.show() // 다이얼로그 띄우기
+
+        // 다이얼로그 운동 결과 텍스트
+        val exerciseResultArea = mAlertDialog.findViewById<TextView>(R.id.exerciseResultArea)
+        exerciseResultArea?.text = when(FeedbackAlgorithm.exr_mode) {
+            "squat" -> FeedbackAlgorithm.squat_string1
+            "plank" -> FeedbackAlgorithm.plank_string1
+            "sideLateralRaise" -> FeedbackAlgorithm.sidelr_string1
+            else -> "ex_count"
+        }
 
         val btnDataWrite =
             mAlertDialog.findViewById<Button>(R.id.btnDataWrite)
@@ -171,27 +183,34 @@ class FeedbackActivity : AppCompatActivity() {
             val feedbackHandler = FeedbackHandler()
 
 
-            var feedbacktext_list3: List<String> = listOf(FeedbackAlgorithm.squat_string3, FeedbackAlgorithm.plank_string3, FeedbackAlgorithm.sidelr_string3)
-            var feedbacktext_list2: List<String> = listOf(FeedbackAlgorithm.squat_string2, FeedbackAlgorithm.plank_string2, FeedbackAlgorithm.sidelr_string2)
+            var feedbacktext_list3: List<String> = listOf(
+                FeedbackAlgorithm.squat_string3,
+                FeedbackAlgorithm.plank_string3,
+                FeedbackAlgorithm.sidelr_string3
+            )
+            var feedbacktext_list2: List<String> = listOf(
+                FeedbackAlgorithm.squat_string2,
+                FeedbackAlgorithm.plank_string2,
+                FeedbackAlgorithm.sidelr_string2
+            )
 
-            if(FeedbackAlgorithm.squat_string3=="Empty"){
+            if (FeedbackAlgorithm.squat_string3 == "Empty") {
                 feedbackMsgSq.visibility = View.GONE
                 feedbackTitleSq.visibility = View.GONE
-                if(FeedbackAlgorithm.plank_string3=="Empty"){
+                if (FeedbackAlgorithm.plank_string3 == "Empty") {
                     feedbackMsgPl.visibility = View.GONE
                     feedbackTitlePl.visibility = View.GONE
                 }
-                if(FeedbackAlgorithm.sidelr_string3=="Empty"){
+                if (FeedbackAlgorithm.sidelr_string3 == "Empty") {
                     feedbackMsgSlr.visibility = View.GONE
                     feedbackTitleSlr.visibility = View.GONE
                 }
-            }
-            else{
-                if(FeedbackAlgorithm.plank_string3=="Empty"){
+            } else {
+                if (FeedbackAlgorithm.plank_string3 == "Empty") {
                     feedbackMsgPl.visibility = View.GONE
                     feedbackTitlePl.visibility = View.GONE
                 }
-                if(FeedbackAlgorithm.sidelr_string3=="Empty") {
+                if (FeedbackAlgorithm.sidelr_string3 == "Empty") {
                     feedbackMsgSlr.visibility = View.GONE
                     feedbackTitleSlr.visibility = View.GONE
                 }
@@ -215,8 +234,8 @@ class FeedbackActivity : AppCompatActivity() {
                     }
                 }
             }*/
-            for(i in feedbacktext_list2){
-                if(i!="Empty"){
+            for (i in feedbacktext_list2) {
+                if (i != "Empty") {
                     FeedbackAlgorithm.feedback_text2 += i
                 }
             }
@@ -230,7 +249,6 @@ class FeedbackActivity : AppCompatActivity() {
             feedbackMsgSlr.text = FeedbackAlgorithm.sidelr_string3
 
             //feedbackArea.text = feedbackHandler.getFeedback()
-
 
 
             /*if(FeedbackAlgorithm.exr_mode == "squat"){
@@ -262,17 +280,14 @@ class FeedbackActivity : AppCompatActivity() {
             prgBar.progress = (prg.toFloat() / tar_cnt.toFloat() * 100).toInt()
 
 
-
-
             // 성공 / 완료
-
 
 
             // bar chart 그리기
             Handler().postDelayed({
 
                 BarChartVariables.firstTargetData = FeedbackAlgorithm.exr_mode
-                BarChartVariables.secondTargetData = when(BarChartVariables.firstTargetData) {
+                BarChartVariables.secondTargetData = when (BarChartVariables.firstTargetData) {
                     "squat" -> "ex_count"
                     "plank" -> "ex_time"
                     "sideLateralRaise" -> "ex_count"
@@ -298,8 +313,6 @@ class FeedbackActivity : AppCompatActivity() {
             BarChartVariables.secondTargetData = "ex_time"
             showChart()
         }
-
-
 
 
     }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/primary_bg"
     android:orientation="vertical">
 
@@ -12,64 +12,63 @@
         android:layout_height="wrap_content"
         android:background="@color/primary_bg">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="10dp"
-        android:background="@color/primary_bg"
-        >
-
-
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            >
-        <com.dinuscxj.progressbar.CircleProgressBar
-            android:id="@+id/complete_PrgBar"
-            android:layout_width="120dp"
-            android:layout_height="100dp"
-            android:layout_gravity="right"
-            android:layout_marginHorizontal="5dp"
-            android:layout_marginVertical="10dp"
-            app:progress_end_color="@color/btn_primary"
-            app:progress_start_color="@color/primary_bg"
-            app:progress_stroke_cap="round"
-            app:progress_stroke_width="20dp"
-            app:progress_text_color="@color/btn_gray"
-            app:progress_text_size="20sp"
-            app:style="solid_line" />
-        </LinearLayout>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/primary_bg">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="100dp">
+
+                <com.dinuscxj.progressbar.CircleProgressBar
+                    android:id="@+id/complete_PrgBar"
+                    android:layout_width="120dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="right"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginVertical="10dp"
+                    app:progress_end_color="@color/btn_primary"
+                    app:progress_start_color="@color/primary_bg"
+                    app:progress_stroke_cap="round"
+                    app:progress_stroke_width="20dp"
+                    app:progress_text_color="@color/btn_gray"
+                    app:progress_text_size="20sp"
+                    app:style="solid_line" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/fb_achivementRate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="달성률 표기"
-                android:padding="5dp"
                 android:background="@drawable/btn_selector_color"
                 android:fontFamily="@font/font"
+                android:padding="5dp"
+                android:text="달성률 표기"
                 android:textSize="20sp" />
 
-    </LinearLayout>
+        </LinearLayout>
 
     </ScrollView>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:background="@color/primary_bg"
-        />
+        android:background="@color/primary_bg" />
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="360dp"
-            android:orientation="vertical"
             android:background="@color/primary_bg"
-            >
+            android:orientation="vertical">
+
             <LinearLayout
                 android:id="@+id/grid_sq"
                 android:layout_width="match_parent"
@@ -78,55 +77,56 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/btn_selector_color"
                 android:orientation="vertical"
-                android:padding="10dp"
-                >
+                android:padding="10dp">
+
                 <TextView
                     android:id="@+id/fb_sq_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_row="0"
-                    tools:text="squat"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
                     android:layout_marginBottom="3dp"
                     android:fontFamily="@font/font"
-                    />
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:text="squat" />
+
                 <TextView
                     android:id="@+id/fb_msg_sq"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="1"
                     android:fontFamily="@font/font"
-                    tools:text="hi"
-                    android:textSize="20dp"/>
+                    android:textSize="20dp"
+                    tools:text="hi" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/grid_pl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp"
+                android:layout_marginHorizontal="10dp"
                 android:background="@drawable/btn_selector_color"
-                android:layout_marginHorizontal="10dp">
+                android:orientation="vertical"
+                android:padding="10dp">
+
                 <TextView
                     android:id="@+id/fb_pl_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textStyle="bold"
                     android:layout_marginBottom="3dp"
-                    tools:text="plank"
-                    android:textSize="20sp"
+                    android:layout_weight="1"
                     android:fontFamily="@font/font"
-                    />
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:text="plank" />
+
                 <TextView
                     android:id="@+id/fb_msg_pl"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="hi"
                     android:fontFamily="@font/font"
-                    android:textSize="20dp"/>
+                    android:textSize="20dp"
+                    tools:text="hi" />
             </LinearLayout>
 
             <LinearLayout
@@ -142,8 +142,8 @@
                     android:id="@+id/fb_slr_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/font"
                     android:layout_marginBottom="3dp"
+                    android:fontFamily="@font/font"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     tools:text="sidelr" />
@@ -158,21 +158,21 @@
             </LinearLayout>
 
             <RelativeLayout
+                android:id="@+id/barChartLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/btn_selector_color"
                 android:layout_marginHorizontal="10dp"
-                android:paddingBottom="10dp"
-                >
+                android:background="@drawable/btn_selector_color"
+                android:paddingBottom="10dp">
 
-            <com.github.mikephil.charting.charts.BarChart
+                <com.github.mikephil.charting.charts.BarChart
                     android:id="@+id/feedbackBarChart"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
-                    />
+                    android:layout_marginEnd="16dp" />
+
                 <TextView
                     android:id="@+id/feedbackYAxisTitleArea"
                     android:layout_width="50dp"
@@ -180,65 +180,67 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:textAlignment="center"
-                    tools:text="개수"/>
+                    tools:text="개수" />
             </RelativeLayout>
 
             <LinearLayout
+                android:id="@+id/btnLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:paddingVertical="10dp">
-            <Button
-                android:id="@+id/fb_btnShowExCalorieChart"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.3"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="칼로리 소모량"
-                android:textColor="@color/btn_gray"
-                android:fontFamily="@font/font"
-                android:background="@drawable/btn_selector_color"
-                android:textSize="15sp" />
 
-            <Button
-                android:id="@+id/fb_btnShowExCountChart"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.3"
-                android:text="운동 횟수"
-                android:fontFamily="@font/font"
-                android:textColor="@color/btn_gray"
-                android:background="@drawable/btn_selector_color"
-                android:layout_marginHorizontal="5dp"
-                android:textSize="15sp" />
+                <Button
+                    android:id="@+id/fb_btnShowExCalorieChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="0.3"
+                    android:background="@drawable/btn_selector_color"
+                    android:fontFamily="@font/font"
+                    android:text="칼로리 소모량"
+                    android:textColor="@color/btn_gray"
+                    android:textSize="15sp" />
 
-            <Button
-                android:id="@+id/fb_btnShowExTimeChart"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.3"
-                android:layout_marginRight="10dp"
-                android:text="운동 시간"
-                android:fontFamily="@font/font"
-                android:textColor="@color/btn_gray"
-                android:background="@drawable/btn_selector_color"
-                android:textSize="15sp" />
+                <Button
+                    android:id="@+id/fb_btnShowExCountChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="0.3"
+                    android:background="@drawable/btn_selector_color"
+                    android:fontFamily="@font/font"
+                    android:text="운동 횟수"
+                    android:textColor="@color/btn_gray"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/fb_btnShowExTimeChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="0.3"
+                    android:background="@drawable/btn_selector_color"
+                    android:fontFamily="@font/font"
+                    android:text="운동 시간"
+                    android:textColor="@color/btn_gray"
+                    android:textSize="15sp" />
             </LinearLayout>
+
             <Button
                 android:id="@+id/return_home"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="확인"
+                android:background="@drawable/btn_selector_color"
+                android:fontFamily="@font/font"
                 android:padding="5dp"
-                android:textStyle="bold"
+                android:text="확인"
                 android:textColor="@color/btn_gray"
                 android:textSize="40dp"
-                android:fontFamily="@font/font"
-                android:background="@drawable/btn_selector_color"
-                />
+                android:textStyle="bold" />
 
         </LinearLayout>
 

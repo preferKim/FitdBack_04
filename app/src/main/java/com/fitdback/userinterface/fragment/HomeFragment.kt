@@ -115,7 +115,6 @@ class HomeFragment : Fragment() {
                 val toLoginActivity = Intent(context, LoginActivity_new::class.java)
                 signOut(toLoginActivity)
             }
-
         })
 
 //        // 개발자 모드
@@ -139,7 +138,11 @@ class HomeFragment : Fragment() {
         val userInfoDataModel: UserInfoDataModel? =
             DataBasket.individualUserInfo?.getValue(UserInfoDataModel::class.java)
 
-        return "${userInfoDataModel?.user_nickname}님 안녕하세요!"
+        return if (userInfoDataModel == null) {
+            "mangoo님 안녕하세요!"
+        } else {
+            "${userInfoDataModel.user_nickname}님 안녕하세요!"
+        }
     }
 
     private fun getDB() {
