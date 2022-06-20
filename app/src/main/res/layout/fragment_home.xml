@@ -153,13 +153,8 @@
 
 
             <RelativeLayout
-<<<<<<< HEAD
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-=======
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
->>>>>>> e3e049e32199810823d220eeed72f8da4a84a193
                 <Button
                     android:id="@+id/puBtn"
                     android:layout_width="match_parent"
@@ -171,9 +166,9 @@
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/btn_stroke_transparent"
                     android:gravity="center"
-                    android:text="래터럴레이즈\n"
+                    android:text="사이드 래터럴 레이즈\n"
                     android:textColor="@color/btn_primary"
-                    android:textSize="30dp"
+                    android:textSize="25sp"
                     android:textStyle="bold"
                     android:fontFamily="@font/font"
                     android:drawableLeft="@drawable/slr"
@@ -187,16 +182,6 @@
                     android:text="#근력운동 #상체 #어깨 #삼각근"
                     />
             </RelativeLayout>
-<<<<<<< HEAD
-=======
-
-                <View
-                    android:background="@color/btn_gray"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginHorizontal="30dp"
-                    />
->>>>>>> e3e049e32199810823d220eeed72f8da4a84a193
 
             <View
                 android:background="@color/btn_gray"
@@ -249,7 +234,7 @@
                     android:drawableLeft="@drawable/fe"
                     android:fontFamily="@font/font"
                     android:gravity="center"
-                    android:text="자율운동\n"
+                    android:text="자율 운동\n"
                     android:textColor="@color/btn_primary"
                     android:textSize="30dp"
                     android:textStyle="bold" />
@@ -260,8 +245,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="40dp"
                     android:layout_centerInParent="true"
-<<<<<<< HEAD
-                    android:text="#스쿼트 #플랭크 # 래터럴레이즈"
+                    android:text="#스쿼트 #플랭크 #래터럴 레이즈"
                     />
             </RelativeLayout>
 
@@ -278,25 +262,6 @@
             <!--                    android:textStyle="bold"-->
             <!--                    tools:layout_editor_absoluteX="-30dp"-->
             <!--                    tools:layout_editor_absoluteY="265dp" />-->
-=======
-                    android:text="#근력운동 #상체 #어깨 #삼각근"
-                    />
-            </RelativeLayout>
-
-<!--                <Button-->
-<!--                    android:id="@+id/btnDevMode"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="50dp"-->
-<!--                    android:layout_marginTop="100dp"-->
-<!--                    android:layout_marginHorizontal="20dp"-->
-<!--                    android:background="@drawable/button_radius_color"-->
-<!--                    android:text="DEV MODE"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:textSize="30sp"-->
-<!--                    android:textStyle="bold"-->
-<!--                    tools:layout_editor_absoluteX="-30dp"-->
-<!--                    tools:layout_editor_absoluteY="265dp" />-->
->>>>>>> e3e049e32199810823d220eeed72f8da4a84a193
 
             <Button
                 android:id="@+id/btnSignOut"
@@ -315,4 +280,3 @@
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
-

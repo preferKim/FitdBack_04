@@ -63,7 +63,7 @@ class FeedbackAlgorithm {
         var exr_mode: String = "Empty"
 
         var delay_tf: Boolean = false
-        var del_start:Long = 0
+        var del_start: Long = 0
         var hka_l_angle: Double = 0.0 //왼쪽 엉덩이, 무릎, 발 각도
         var hka_r_angle: Double = 0.0 //오른쪽 엉덩이, 무릎, 발 각도
         var nhk_l_angle: Double = 0.0 //목, 왼골반, 왼무릎 각도
@@ -228,7 +228,7 @@ class FeedbackAlgorithm {
             }
 
 
-            try{
+            try {
                 hka_l_angle = cal_angle(mDrawPoint[8], mDrawPoint[9], mDrawPoint[10])
                 hka_r_angle = cal_angle(mDrawPoint[11], mDrawPoint[12], mDrawPoint[13])
                 nhk_l_angle = cal_angle(mDrawPoint[9], mDrawPoint[8], mDrawPoint[1])
@@ -250,13 +250,13 @@ class FeedbackAlgorithm {
                         break
                     }
                 }
-            }catch(e: ArrayIndexOutOfBoundsException){
+            } catch (e: ArrayIndexOutOfBoundsException) {
             }
 
 
             //스쿼트 판별 시작
 
-            Log.d("squat_err3", "허리 = " + nhk_l_angle + " tf "+ cnt_s_tf + " " + cnt_f_tf)
+            Log.d("squat_err3", "허리 = " + nhk_l_angle + " tf " + cnt_s_tf + " " + cnt_f_tf)
 
 
             if (hka_l_angle in 160.0..180.0 && !no_exr) {
@@ -273,8 +273,9 @@ class FeedbackAlgorithm {
                         exr_cnt_s++
                         squat_s++
                         sound_play(context, R.raw.sound1) // "띠링" (성공사운드)
-                        var layoutInflater = LayoutInflater.from(context).inflate(R.layout.view_holder_toast, null)
-                        var text : TextView = layoutInflater.findViewById(R.id.textViewToast)
+                        var layoutInflater =
+                            LayoutInflater.from(context).inflate(R.layout.view_holder_toast, null)
+                        var text: TextView = layoutInflater.findViewById(R.id.textViewToast)
                         text.text = "⭕ 운동 성공!"
 
                         var toast = Toast(context)
@@ -291,8 +292,9 @@ class FeedbackAlgorithm {
                             if (wrong_mode == 1) {
                                 sound_play(context, R.raw.squat_ld_fb) // "다리 더 굽히세요"
 
-                                var layoutInflater = LayoutInflater.from(context).inflate(R.layout.view_holder_toast, null)
-                                var text : TextView = layoutInflater.findViewById(R.id.textViewToast)
+                                var layoutInflater = LayoutInflater.from(context)
+                                    .inflate(R.layout.view_holder_toast, null)
+                                var text: TextView = layoutInflater.findViewById(R.id.textViewToast)
                                 text.text = "❌ 다리 더 굽히세요"
 
                                 var toast = Toast(context)
@@ -303,8 +305,9 @@ class FeedbackAlgorithm {
                             } else if (wrong_mode == 2) {
                                 sound_play(context, R.raw.squat_lu_fb) // "다리 너무 굽혔어요"
 
-                                var layoutInflater = LayoutInflater.from(context).inflate(R.layout.view_holder_toast, null)
-                                var text : TextView = layoutInflater.findViewById(R.id.textViewToast)
+                                var layoutInflater = LayoutInflater.from(context)
+                                    .inflate(R.layout.view_holder_toast, null)
+                                var text: TextView = layoutInflater.findViewById(R.id.textViewToast)
                                 text.text = "❌ 다리 너무 굽혔어요"
 
                                 var toast = Toast(context)
@@ -354,20 +357,18 @@ class FeedbackAlgorithm {
                     }
                 }
 
-                squat_cnt = squat_s+ squat_f
+                squat_cnt = squat_s + squat_f
                 ran_int = (0..8).random()
-                cal_sq = ((squat_s+squat_f) * squat_cal).toInt() + (ran_int*0.125)
+                cal_sq = ((squat_s + squat_f) * squat_cal).toInt() + (ran_int * 0.125)
                 squat_string1 = ("스쿼트\n%d / %d 회 성공.\n" +
-                        "%.3f kcal 소모.").format(squat_s, squat_s+ squat_f, cal_sq)
+                        "%.3f kcal 소모.").format(squat_s, squat_s + squat_f, cal_sq)
 
                 squat_string2 = ("스쿼트\n%d회 중 %d회 성공.\n" +
-                        "%.3f kcal를 소모하였습니다.").format(squat_s+ squat_f, squat_s, cal_sq)
+                        "%.3f kcal를 소모하였습니다.").format(squat_s + squat_f, squat_s, cal_sq)
 
                 squat_string3 = ("다리를 %d회 더 굽혔습니다.\n" +
                         "다리를 %d회 덜 굽혔습니다.").format(squat_f_mode[2], squat_f_mode[1])
-            }
-
-            else if (140.toDouble() >= hka_l_angle && !no_exr) {
+            } else if (140.toDouble() >= hka_l_angle && !no_exr) {
                 //스쿼트 자세로 판단되면 Stand가 아님
                 isStand = false
 
@@ -427,7 +428,7 @@ class FeedbackAlgorithm {
 
 
                 //------------------------------
-                //오른쪽을 보고 엎드리기
+                //오른쪽을 보고 엎드리기1
                 //머리가 가장 오른쪽, 왼발목이 가장 왼쪽에 있는지 체크 -> 아니면 스쿼트 판별x
                 for (i in 1..13) {
                     if (head_x <= mDrawPoint[i].x) {
@@ -457,8 +458,9 @@ class FeedbackAlgorithm {
 
                     if (nhk_l_angle < 150.0 && hip_l_y < neck_y) {
                         sound_play(context, R.raw.plank_bd_fb) //"허리 내리세요"
-                        var layoutInflater = LayoutInflater.from(context).inflate(R.layout.view_holder_toast, null)
-                        var text : TextView = layoutInflater.findViewById(R.id.textViewToast)
+                        var layoutInflater =
+                            LayoutInflater.from(context).inflate(R.layout.view_holder_toast, null)
+                        var text: TextView = layoutInflater.findViewById(R.id.textViewToast)
                         text.text = "❌ 허리 내리세요"
 
                         var toast = Toast(context)
@@ -470,8 +472,9 @@ class FeedbackAlgorithm {
                         wrong_mode = 1
                     } else if (nhk_l_angle < 170.0 && hip_l_y > neck_y) {
                         sound_play(context, R.raw.plank_bu_fb) //"허리 올리세요"
-                        var layoutInflater = LayoutInflater.from(context).inflate(R.layout.view_holder_toast, null)
-                        var text : TextView = layoutInflater.findViewById(R.id.textViewToast)
+                        var layoutInflater =
+                            LayoutInflater.from(context).inflate(R.layout.view_holder_toast, null)
+                        var text: TextView = layoutInflater.findViewById(R.id.textViewToast)
                         text.text = "❌ 허리 올리세요"
 
                         var toast = Toast(context)
@@ -490,9 +493,7 @@ class FeedbackAlgorithm {
 
                         plank_f_mode[wrong_mode]++
                     }
-                }
-
-                else {
+                } else {
                     time_tf = true
                     plank_start = 0
                 }
@@ -517,13 +518,16 @@ class FeedbackAlgorithm {
                 }
 
                 exr_cal = exr_cnt * plank_cal
-                plank_s_per = plank_f_mode[0].toDouble() / (plank_f_mode[0] + plank_f_mode[1]+plank_f_mode[2])
-                plank_f1_per = plank_f_mode[1].toDouble() / (plank_f_mode[0] + plank_f_mode[1]+plank_f_mode[2])
-                plank_f2_per = plank_f_mode[2].toDouble() / (plank_f_mode[0] + plank_f_mode[1]+plank_f_mode[2])
+                plank_s_per =
+                    plank_f_mode[0].toDouble() / (plank_f_mode[0] + plank_f_mode[1] + plank_f_mode[2])
+                plank_f1_per =
+                    plank_f_mode[1].toDouble() / (plank_f_mode[0] + plank_f_mode[1] + plank_f_mode[2])
+                plank_f2_per =
+                    plank_f_mode[2].toDouble() / (plank_f_mode[0] + plank_f_mode[1] + plank_f_mode[2])
                 plank_s = (plank_time_result.toDouble() * plank_s_per).toInt()
 
                 ran_int = (0..8).random()
-                cal_pl = (plank_time_result * plank_cal).toInt() + (ran_int*0.125)
+                cal_pl = (plank_time_result * plank_cal).toInt() + (ran_int * 0.125)
                 plank_string1 = ("플랭크\n%d / %d 초 성공.\n" +
                         "%.3f kcal 소모.\n").format(plank_s, plank_time_result, cal_pl)
 
@@ -531,11 +535,16 @@ class FeedbackAlgorithm {
                         "%.3f kcal를 소모하였습니다.").format(plank_time_result, plank_s, cal_pl)
 
                 plank_string3 = ("엉덩이가 %d%% 들렸습니다.\n" +
-                        "엉덩이가 %d%% 내려갔습니다.").format((plank_f1_per*100).toInt(), (plank_f2_per*100).toInt())
+                        "엉덩이가 %d%% 내려갔습니다.").format(
+                    (plank_f1_per * 100).toInt(),
+                    (plank_f2_per * 100).toInt()
+                )
 
-                Log.d("stringresult", "string = " + plank_string1 +" " + plank_string2+" "+plank_string3)
-            }
-            else {
+                Log.d(
+                    "stringresult",
+                    "string = " + plank_string1 + " " + plank_string2 + " " + plank_string3
+                )
+            } else {
                 if (isFirst) {
                     isFirst = false
                     sound_play(context, R.raw.plank_suc) //플랭크 10초 완료 사운드
@@ -592,8 +601,7 @@ class FeedbackAlgorithm {
                         break
                     }
                 }
-            }
-            catch(e: ArrayIndexOutOfBoundsException){
+            } catch (e: ArrayIndexOutOfBoundsException) {
             }
             //------------------------------
 
@@ -612,17 +620,16 @@ class FeedbackAlgorithm {
                         exr_cnt_s++
                         sidelr_s++
                         sound_play(context, R.raw.sound1) // "띠링" (성공사운드)
-                        var layoutInflater = LayoutInflater.from(context).inflate(R.layout.view_holder_toast, null)
-                        var text : TextView = layoutInflater.findViewById(R.id.textViewToast)
+                        var layoutInflater =
+                            LayoutInflater.from(context).inflate(R.layout.view_holder_toast, null)
+                        var text: TextView = layoutInflater.findViewById(R.id.textViewToast)
                         text.text = "⭕ 운동 성공!"
 
                         var toast = Toast(context)
                         toast.setGravity(Gravity.TOP, 0, 200)
                         toast.view = layoutInflater
                         toast.show()
-                    }
-
-                    else if (cnt_f_tf && isWrong) {
+                    } else if (cnt_f_tf && isWrong) {
                         cnt_f_tf = false
                         if (isWrong && wrong_mode >= 1) {
                             exr_cnt_f++
@@ -631,8 +638,9 @@ class FeedbackAlgorithm {
 
                             if (wrong_mode == 1) {
                                 sound_play(context, R.raw.sidelr_ru_fb) // "오른팔 더 올리세요"
-                                var layoutInflater = LayoutInflater.from(context).inflate(R.layout.view_holder_toast, null)
-                                var text : TextView = layoutInflater.findViewById(R.id.textViewToast)
+                                var layoutInflater = LayoutInflater.from(context)
+                                    .inflate(R.layout.view_holder_toast, null)
+                                var text: TextView = layoutInflater.findViewById(R.id.textViewToast)
                                 text.text = "❌ 오른팔 더 올리세요"
 
                                 var toast = Toast(context)
@@ -642,8 +650,9 @@ class FeedbackAlgorithm {
 
                             } else if (wrong_mode == 2) {
                                 sound_play(context, R.raw.sidelr_lu_fb) // "왼팔 더 올리세요"
-                                var layoutInflater = LayoutInflater.from(context).inflate(R.layout.view_holder_toast, null)
-                                var text : TextView = layoutInflater.findViewById(R.id.textViewToast)
+                                var layoutInflater = LayoutInflater.from(context)
+                                    .inflate(R.layout.view_holder_toast, null)
+                                var text: TextView = layoutInflater.findViewById(R.id.textViewToast)
                                 text.text = "❌ 왼팔 더 올리세요"
 
                                 var toast = Toast(context)
@@ -652,8 +661,9 @@ class FeedbackAlgorithm {
                                 toast.show()
                             } else if (wrong_mode == 3) {
                                 sound_play(context, R.raw.sidelr_bu_fb) // "두 팔 다 더 올리세요"
-                                var layoutInflater = LayoutInflater.from(context).inflate(R.layout.view_holder_toast, null)
-                                var text : TextView = layoutInflater.findViewById(R.id.textViewToast)
+                                var layoutInflater = LayoutInflater.from(context)
+                                    .inflate(R.layout.view_holder_toast, null)
+                                var text: TextView = layoutInflater.findViewById(R.id.textViewToast)
                                 text.text = "❌ 두 팔 다 더 올리세요"
 
                                 var toast = Toast(context)
@@ -662,8 +672,9 @@ class FeedbackAlgorithm {
                                 toast.show()
                             } else if (wrong_mode == 5) {
                                 sound_play(context, R.raw.sidelr_ld_fb) // "왼팔 조금 내리세요"
-                                var layoutInflater = LayoutInflater.from(context).inflate(R.layout.view_holder_toast, null)
-                                var text : TextView = layoutInflater.findViewById(R.id.textViewToast)
+                                var layoutInflater = LayoutInflater.from(context)
+                                    .inflate(R.layout.view_holder_toast, null)
+                                var text: TextView = layoutInflater.findViewById(R.id.textViewToast)
                                 text.text = "❌ 왼팔 조금 내리세요"
 
                                 var toast = Toast(context)
@@ -675,8 +686,9 @@ class FeedbackAlgorithm {
                                 isSidelr = false
                             } else if (wrong_mode == 8) {
                                 sound_play(context, R.raw.sidelr_rd_fb) // "오른팔 조금 내리세요"
-                                var layoutInflater = LayoutInflater.from(context).inflate(R.layout.view_holder_toast, null)
-                                var text : TextView = layoutInflater.findViewById(R.id.textViewToast)
+                                var layoutInflater = LayoutInflater.from(context)
+                                    .inflate(R.layout.view_holder_toast, null)
+                                var text: TextView = layoutInflater.findViewById(R.id.textViewToast)
                                 text.text = "❌ 오른팔 조금 내리세요"
 
                                 var toast = Toast(context)
@@ -688,8 +700,9 @@ class FeedbackAlgorithm {
                                 isSidelr = false
                             } else if (wrong_mode == 13) {
                                 sound_play(context, R.raw.sidelr_bd_fb) // "두 팔 다 더 내리세요"
-                                var layoutInflater = LayoutInflater.from(context).inflate(R.layout.view_holder_toast, null)
-                                var text : TextView = layoutInflater.findViewById(R.id.textViewToast)
+                                var layoutInflater = LayoutInflater.from(context)
+                                    .inflate(R.layout.view_holder_toast, null)
+                                var text: TextView = layoutInflater.findViewById(R.id.textViewToast)
                                 text.text = "❌ 두 팔 다 더 내리세요"
 
                                 var toast = Toast(context)
@@ -744,24 +757,29 @@ class FeedbackAlgorithm {
 
                 }
 
-                sidelr_cnt = sidelr_s+sidelr_f
+                sidelr_cnt = sidelr_s + sidelr_f
                 ran_int = (0..8).random()
-                cal_slr = (sidelr_cal*(sidelr_s+sidelr_f)).toInt() + (ran_int*0.125)
+                cal_slr = (sidelr_cal * (sidelr_s + sidelr_f)).toInt() + (ran_int * 0.125)
                 sidelr_string1 = ("래터럴 레이즈\n%d / %d 회 성공.\n" +
-                        "%.3f kcal 소모.\n").format(sidelr_s, sidelr_s+ sidelr_f, cal_slr)
+                        "%.3f kcal 소모.\n").format(sidelr_s, sidelr_s + sidelr_f, cal_slr)
 
                 sidelr_string2 = ("래터럴 레이즈\n%d회 중 %d회 성공.\n" +
-                        "%.3f kcal를 소모하였습니다.\n").format(sidelr_s+ sidelr_f, sidelr_s, cal_slr)
+                        "%.3f kcal를 소모하였습니다.\n").format(sidelr_s + sidelr_f, sidelr_s, cal_slr)
 
                 sidelr_string3 = ("왼팔이 %d회 더 올라갔습니다.\n" +
                         "왼팔이 %d회 덜 올라갔습니다.\n" +
                         "오른팔이 %d회 더 올라갔습니다.\n" +
                         "오른팔이 %d회 덜 올라갔습니다.\n" +
                         "양팔이 %d회 더 올라갔습니다.\n" +
-                        "양팔이 %d회 덜 올라갔습니다.").format(sidelr_f_mode[5], sidelr_f_mode[2], sidelr_f_mode[8], sidelr_f_mode[1], sidelr_f_mode[13], sidelr_f_mode[3])
-            }
-
-            else if (elbow_l_y > neck_y && elbow_r_y > neck_y && nse_l_angle >= 140.0 && nse_r_angle >= 140.0 && !no_exr && wrong_mode<5) {
+                        "양팔이 %d회 덜 올라갔습니다.").format(
+                    sidelr_f_mode[5],
+                    sidelr_f_mode[2],
+                    sidelr_f_mode[8],
+                    sidelr_f_mode[1],
+                    sidelr_f_mode[13],
+                    sidelr_f_mode[3]
+                )
+            } else if (elbow_l_y > neck_y && elbow_r_y > neck_y && nse_l_angle >= 140.0 && nse_r_angle >= 140.0 && !no_exr && wrong_mode < 5) {
                 //사래레 자세로 판단되면 Stand가 아님
                 isStand = false
 
@@ -772,10 +790,8 @@ class FeedbackAlgorithm {
                     isSidelr = true
                     isWrong = false
                     Log.d("sidelr_S", "왼팔 = " + nse_l_angle + " 오른팔 = " + nse_r_angle)
-                }
-
-                else {
-                    if (!isSidelr && wrong_mode < 5&&!cnt_s_tf) {
+                } else {
+                    if (!isSidelr && wrong_mode < 5 && !cnt_s_tf) {
                         wrong_mode = 0
                         cnt_f_tf = true
                         if (nse_l_angle in 140.0..169.9 || nse_r_angle in 140.0..169.9) {
@@ -792,9 +808,7 @@ class FeedbackAlgorithm {
                 }
 
 
-            }
-
-            else if ((elbow_l_y <= neck_y || elbow_r_y <= neck_y) && wrong_mode < 5) {
+            } else if ((elbow_l_y <= neck_y || elbow_r_y <= neck_y) && wrong_mode < 5) {
                 isStand = false
                 wrong_mode = 0
                 if (elbow_l_y <= neck_y) {
@@ -811,21 +825,31 @@ class FeedbackAlgorithm {
 
 
             ran_int = (0..8).random()
-            cal_slr = (sidelr_cal*(sidelr_s+sidelr_f)).toInt() + (ran_int*0.125)
+            cal_slr = (sidelr_cal * (sidelr_s + sidelr_f)).toInt() + (ran_int * 0.125)
             sidelr_string1 = ("래터럴 레이즈\n%d / %d 회 성공.\n" +
-                    "%.3f kcal 소모.\n").format(sidelr_s, sidelr_s+ sidelr_f, cal_slr)
+                    "%.3f kcal 소모.\n").format(sidelr_s, sidelr_s + sidelr_f, cal_slr)
 
             sidelr_string2 = ("래터럴 레이즈\n%d회 중 %d회 성공.\n" +
-                    "%.3f kcal를 소모하였습니다.").format(sidelr_s+ sidelr_f, sidelr_s, cal_slr)
+                    "%.3f kcal를 소모하였습니다.").format(sidelr_s + sidelr_f, sidelr_s, cal_slr)
 
             sidelr_string3 = ("왼팔이 %d회 더 올라갔습니다.\n" +
                     "왼팔이 %d회 덜 올라갔습니다.\n" +
                     "오른팔이 %d회 더 올라갔습니다.\n" +
                     "오른팔이 %d회 덜 올라갔습니다.\n" +
                     "양팔이 %d회 더 올라갔습니다.\n" +
-                    "양팔이 %d회 덜 올라갔습니다.").format(sidelr_f_mode[5], sidelr_f_mode[2], sidelr_f_mode[8], sidelr_f_mode[1], sidelr_f_mode[13], sidelr_f_mode[3])
+                    "양팔이 %d회 덜 올라갔습니다.").format(
+                sidelr_f_mode[5],
+                sidelr_f_mode[2],
+                sidelr_f_mode[8],
+                sidelr_f_mode[1],
+                sidelr_f_mode[13],
+                sidelr_f_mode[3]
+            )
 
-            Log.d("stringresult", "string = " + sidelr_string1 +" " + sidelr_string2+" "+sidelr_string3)
+            Log.d(
+                "stringresult",
+                "string = " + sidelr_string1 + " " + sidelr_string2 + " " + sidelr_string3
+            )
         }
 
         //자율운동
@@ -838,16 +862,13 @@ class FeedbackAlgorithm {
             try {
                 ha_grad = cal_grad(mDrawPoint[0], mDrawPoint[10])
                 ank_dist = cal_dist(mDrawPoint[10], mDrawPoint[13])
-            }
-            catch(e: ArrayIndexOutOfBoundsException){
+            } catch (e: ArrayIndexOutOfBoundsException) {
 
             }
 
             if (ha_grad in -1.0..1.0) {
                 plank(context, mDrawPoint)
-            }
-
-            else {
+            } else {
                 if (ank_dist < 200.0) {
                     squat(context, mDrawPoint)
                 } else {
@@ -856,12 +877,12 @@ class FeedbackAlgorithm {
             }
 
             total_cnt = squat_s + squat_f + plank_time_result + sidelr_s + sidelr_f
-            exr_cal = (squat_cal * (squat_s + squat_f)) + (plank_cal * plank_time_result) + (sidelr_cal * (sidelr_s + sidelr_f))
+            exr_cal =
+                (squat_cal * (squat_s + squat_f)) + (plank_cal * plank_time_result) + (sidelr_cal * (sidelr_s + sidelr_f))
             if (total_cnt < 20) {
                 free_time = System.currentTimeMillis() - free_start
                 free_time_result = (ceil((total_exr_time / 1000.toDouble()))).toInt()
             }
-
 
 
             /*------------------------------------------------------------

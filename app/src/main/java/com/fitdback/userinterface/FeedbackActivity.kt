@@ -190,13 +190,13 @@ class FeedbackActivity : AppCompatActivity() {
 
             var feedbacktext_list3: List<String> = listOf(
                 FeedbackAlgorithm.squat_string3,
-//                FeedbackAlgorithm.plank_string3,
+                FeedbackAlgorithm.plank_string3,
                 FeedbackAlgorithm.sidelr_string3
             )
 
             var feedbacktext_list2: List<String> = listOf(
                 FeedbackAlgorithm.squat_string2,
-//                FeedbackAlgorithm.plank_string2,
+                FeedbackAlgorithm.plank_string2,
                 FeedbackAlgorithm.sidelr_string2
             )
 
@@ -283,7 +283,8 @@ class FeedbackActivity : AppCompatActivity() {
 
             // 완료 / 목표치
             prgBar.max = 100
-            prgBar.progress = (prg.toFloat() / tar_cnt.toFloat() * 100).toInt()
+//            prgBar.progress = (prg.toFloat() / tar_cnt.toFloat() * 100).toInt()
+            prgBar.progress = 33
 
 
             // 성공 / 완료
