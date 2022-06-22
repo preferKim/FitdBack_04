@@ -117,16 +117,16 @@ class HomeFragment : Fragment() {
             }
         })
 
-//        // 개발자 모드
-//        val btnDevMode: Button = view.findViewById(R.id.btnDevMode)
-//        btnDevMode.setOnClickListener(object : View.OnClickListener {
-//            override fun onClick(v: View?) {
-//                activity?.finish()
-//                val toDevActivity = Intent(context, FeedbackActivity::class.java)
-//                toDevActivity.putExtra("exr_mode", "squat")
-//                startActivity(toDevActivity)
-//            }
-//        })
+        // 개발자 모드
+        val btnDevMode: Button = view.findViewById(R.id.btnDevMode)
+        btnDevMode.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                activity?.finish()
+                val toDevActivity = Intent(context, DevModeActivity::class.java)
+                toDevActivity.putExtra("exr_mode", "squat")
+                startActivity(toDevActivity)
+            }
+        })
 
 
         // Inflate the layout for this fragment

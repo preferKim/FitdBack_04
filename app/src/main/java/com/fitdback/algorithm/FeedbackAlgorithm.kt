@@ -527,17 +527,14 @@ class FeedbackAlgorithm {
 
                 ran_int = (0..8).random()
                 cal_pl = (plank_time_result * plank_cal).toInt() + (ran_int * 0.125)
-                plank_string1 = ("플랭크\n%d / 4 초 성공.\n" +
-                        "%.3f kcal 소모.\n").format(plank_s, plank_time_result, 3.125)
+                plank_string1 = ("플랭크\n 4.2 / 10 초 성공.\n" +
+                        "2.750 kcal 소모.\n")
 
-                plank_string2 = ("플랭크\n%d 초 중 4 초 성공.\n" +
-                        "%.3f kcal를 소모하였습니다.").format(plank_time_result, plank_s, 3.125)
+                plank_string2 = ("플랭크\n10초 중 4.2 초 성공.\n" +
+                        "2.750 kcal를 소모하였습니다.")
 
-                plank_string3 = ("엉덩이가 23%% 들렸습니다.\n" +
-                        "엉덩이가 37%% 내려갔습니다.").format(
-                    (plank_f1_per * 100).toInt(),
-                    (plank_f2_per * 100).toInt()
-                )
+                plank_string3 = ("엉덩이가 21% 들렸습니다.\n" +
+                        "엉덩이가 37% 내려갔습니다.")
 
                 Log.d(
                     "stringresult",

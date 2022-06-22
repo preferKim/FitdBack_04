@@ -299,7 +299,7 @@ class Camera2BasicFragment : Fragment(), FragmentCompat.OnRequestPermissionsResu
                                 FeedbackAlgorithm.exr_cnt,
                                 FeedbackAlgorithm.exr_time_result,
                                 FeedbackAlgorithm.exr_cnt_s,
-                                FeedbackAlgorithm.exr_cal.toInt()
+                                3
                             )
 
                             DataBasket.tempExrModel = exerciseDataModel
@@ -383,11 +383,7 @@ class Camera2BasicFragment : Fragment(), FragmentCompat.OnRequestPermissionsResu
     private fun showCount(text_com: Int, text_tar: Int, text_f: Int, text_s: Int) {
         val activity = activity
         activity?.runOnUiThread {
-<<<<<<< HEAD
-            if (TimerClass.second <= 0) {
-=======
-            if(TimerClass.second <= 0 && FeedbackAlgorithm.exr_mode != "plank") {
->>>>>>> 7ba79020b046f4e7c50a309b6bd3d6b948c6db9c
+            if (TimerClass.second <= 0 && FeedbackAlgorithm.exr_mode != "plank") {
                 countView!!.visibility = View.VISIBLE
                 countView!!.text = "🎯 " + text_tar.toString() + " | ☑ " + text_com.toString() +
                         " | ⭕ " + text_s.toString() + " | ❌ " + text_f.toString()

@@ -1,47 +1,48 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.fitdback.userinterface.fragment.HomeFragment"
-    android:orientation="vertical"
-    android:columnCount="3"
     android:background="@color/primary_bg"
-    android:rowCount="6">
+    android:columnCount="3"
+    android:orientation="vertical"
+    android:rowCount="6"
+    tools:context="com.fitdback.userinterface.fragment.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:background="@color/white"
-        android:elevation="10dp">
+        android:elevation="10dp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/home_greeting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:fontFamily="@font/font"
             android:text="안녕하세요"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:fontFamily="@font/font"
 
             />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="하고 싶은 운동을 선택해주세요."
             android:textSize="20sp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
     </LinearLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/primary_bg"
-        >
+        android:background="@color/primary_bg">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -66,39 +67,37 @@
                     android:id="@+id/squatBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="28dp"
                     android:layout_gravity="center"
-                    android:gravity="center"
-                    android:background="@drawable/btn_stroke_transparent"
-                    android:text="스쿼트\n"
+                    android:layout_marginHorizontal="28dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="20dp"
-                    android:textColor="@color/btn_primary"
-                    android:textSize="30sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/font"
+                    android:background="@drawable/btn_stroke_transparent"
                     android:drawableLeft="@drawable/sq"
                     android:elevation="0dp"
-                    />
+                    android:fontFamily="@font/font"
+                    android:gravity="center"
+                    android:text="스쿼트\n"
+                    android:textColor="@color/btn_primary"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/sq_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="30dp"
                     android:layout_centerInParent="true"
-                    android:text="#근력운동 #하체 #허벅지 #엉덩이"
-                    />
+                    android:layout_marginRight="30dp"
+                    android:text="#근력운동 #하체 #허벅지 #엉덩이" />
 
             </RelativeLayout>
+
             <View
-                android:background="@color/btn_gray"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginHorizontal="30dp"
                 android:layout_marginBottom="10dp"
-                />
+                android:background="@color/btn_gray" />
             <!-- 플랭크 -->
 
             <!--<TextView
@@ -115,46 +114,45 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <Button
                     android:id="@+id/plkBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/btn_stroke_transparent"
-                    android:gravity="center"
                     android:layout_gravity="center"
                     android:layout_marginHorizontal="30dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="20dp"
+                    android:background="@drawable/btn_stroke_transparent"
+                    android:drawableLeft="@drawable/pl"
+                    android:fontFamily="@font/font"
+                    android:gravity="center"
                     android:text="플랭크\n"
                     android:textColor="@color/btn_primary"
                     android:textSize="30dp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/font"
-                    android:drawableLeft="@drawable/pl"
-                    >
-                </Button>
+                    android:textStyle="bold"></Button>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="40dp"
                     android:layout_centerInParent="true"
-                    android:text="#코어근육 #등 #복근 #엉덩이"
-                    />
+                    android:layout_marginRight="40dp"
+                    android:text="#코어근육 #등 #복근 #엉덩이" />
             </RelativeLayout>
+
             <View
-                android:background="@color/btn_gray"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginHorizontal="30dp"
                 android:layout_marginBottom="10dp"
-                />
-
+                android:background="@color/btn_gray" />
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <Button
                     android:id="@+id/puBtn"
                     android:layout_width="match_parent"
@@ -165,30 +163,28 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/btn_stroke_transparent"
+                    android:drawableLeft="@drawable/slr"
+                    android:fontFamily="@font/font"
                     android:gravity="center"
                     android:text="사이드 래터럴 레이즈\n"
                     android:textColor="@color/btn_primary"
                     android:textSize="25sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/font"
-                    android:drawableLeft="@drawable/slr"
-                    />
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="40dp"
                     android:layout_centerInParent="true"
-                    android:text="#근력운동 #상체 #어깨 #삼각근"
-                    />
+                    android:layout_marginRight="40dp"
+                    android:text="#근력운동 #상체 #어깨 #삼각근" />
             </RelativeLayout>
 
             <View
-                android:background="@color/btn_gray"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginHorizontal="30dp"
-                />
+                android:background="@color/btn_gray" />
 
             <!-- 자율 운동 -->
             <!--<TextView
@@ -222,6 +218,7 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+
                 <Button
                     android:id="@+id/freeExBtn"
                     android:layout_width="match_parent"
@@ -243,33 +240,32 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="40dp"
                     android:layout_centerInParent="true"
-                    android:text="#스쿼트 #플랭크 #래터럴 레이즈"
-                    />
+                    android:layout_marginRight="40dp"
+                    android:text="#스쿼트 #플랭크 #래터럴 레이즈" />
             </RelativeLayout>
 
-            <!--                <Button-->
-            <!--                    android:id="@+id/btnDevMode"-->
-            <!--                    android:layout_width="match_parent"-->
-            <!--                    android:layout_height="50dp"-->
-            <!--                    android:layout_marginTop="100dp"-->
-            <!--                    android:layout_marginHorizontal="20dp"-->
-            <!--                    android:background="@drawable/button_radius_color"-->
-            <!--                    android:text="DEV MODE"-->
-            <!--                    android:textColor="@color/white"-->
-            <!--                    android:textSize="30sp"-->
-            <!--                    android:textStyle="bold"-->
-            <!--                    tools:layout_editor_absoluteX="-30dp"-->
-            <!--                    tools:layout_editor_absoluteY="265dp" />-->
+            <Button
+                android:id="@+id/btnDevMode"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="100dp"
+                android:background="@drawable/button_radius_color"
+                android:text="DEV MODE"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="-30dp"
+                tools:layout_editor_absoluteY="265dp" />
 
             <Button
                 android:id="@+id/btnSignOut"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="100dp"
-                android:layout_marginHorizontal="20dp"
                 android:background="@drawable/button_radius_color_2"
                 android:text="Sign Out"
                 android:textColor="@color/white"

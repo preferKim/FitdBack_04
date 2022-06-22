@@ -284,7 +284,7 @@ class FeedbackActivity : AppCompatActivity() {
             // 완료 / 목표치
             prgBar.max = 100
 //            prgBar.progress = (prg.toFloat() / tar_cnt.toFloat() * 100).toInt()
-            prgBar.progress = 33
+            prgBar.progress = 42
 
 
             // 성공 / 완료
